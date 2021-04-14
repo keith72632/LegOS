@@ -37,6 +37,14 @@ static inline void delay(int32_t count)
 volatile unsigned int  __attribute__((aligned(16))) mbox[9] = {
     9*4, 0, 0x38002, 12, 8, 2, 3000000, 0 ,0
 };
+
+/**********************************************************************************
+ * Primary UART0
+ *On the Raspberry Pi, one UART is selected to be present on GPIO 14 (transmit) 
+ *and 15 (receive) - this is the primary UART. By default, this will also be the
+ * UART on which a Linux console may be present. Note that GPIO 14 is pin 8 on 
+ * the GPIO header, while GPIO 15 is pin 10.
+ **********************************************************************************/
  
 
 void uart_init(int raspi)
@@ -97,7 +105,7 @@ void uart_init(int raspi)
 void uart_putc(unsigned char c)
 {
 	// Wait for UART to become ready to transmit.
-	while ( mmio_read(UART0_FR) & (1 << 5) ) { }
+	while ( mmio_read(UART0_FR) & (1 << 5) ) {/*while 5th bit in flag regs is one*/}
 	mmio_write(UART0_DR, c);
 }
  

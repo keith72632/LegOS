@@ -17,6 +17,6 @@ void puts(char *str)
 
 unsigned char getc()
 {
-    uart_getc();
+    return uart_getc();
 }
 
