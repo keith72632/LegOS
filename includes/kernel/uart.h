@@ -25,16 +25,16 @@ enum
     UART0_FBRD   = (UART0_BASE + 0x28), //Fractional part of baud rate.
     UART0_LCRH   = (UART0_BASE + 0x2C), //Line contol reg. LCRH, FBRD, and IBRD should not be changed while UART enabled
     UART0_CR     = (UART0_BASE + 0x30), //Control reg. 
-    UART0_IFLS   = (UART0_BASE + 0x34),
-    UART0_IMSC   = (UART0_BASE + 0x38),
-    UART0_RIS    = (UART0_BASE + 0x3C),
-    UART0_MIS    = (UART0_BASE + 0x40),
-    UART0_ICR    = (UART0_BASE + 0x44),
-    UART0_DMACR  = (UART0_BASE + 0x48),
-    UART0_ITCR   = (UART0_BASE + 0x80),
+    UART0_IFLS   = (UART0_BASE + 0x34), //Interrupt FIFO Level Selector. Basically shows how full FIFO is
+    UART0_IMSC   = (UART0_BASE + 0x38), //Interrupt Mask set/clear reg. Read/write
+    UART0_RIS    = (UART0_BASE + 0x3C), //Raw interrup status register. Read only. Return the current raw status value
+    UART0_MIS    = (UART0_BASE + 0x40), //Masked Interrupt status register. Return masked status of corresponding interrupt
+    UART0_ICR    = (UART0_BASE + 0x44), //Interrupt Clear register
+    UART0_DMACR  = (UART0_BASE + 0x48), //Disabled
+    UART0_ITCR   = (UART0_BASE + 0x80), //Test control register
     UART0_ITIP   = (UART0_BASE + 0x84),
     UART0_ITOP   = (UART0_BASE + 0x88),
-    UART0_TDR    = (UART0_BASE + 0x8C),
+    UART0_TDR    = (UART0_BASE + 0x8C), //Test data reg
  
     // The offsets for Mailbox registers
     MBOX_BASE    = 0xB880,
